@@ -4,6 +4,8 @@ import { redirect } from "next/navigation";
 import AddTransactionButton from "../_components/add-transaction-button";
 import TransactionsTable from "./_columns/_components/transactions-table";
 
+export const dynamic = "force-dynamic";
+
 const TransactionsPage = async () => {
   const { userId } = await auth();
   if (!userId) {
