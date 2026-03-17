@@ -7,7 +7,7 @@ import ActionButtons from "./_components/action-buttons";
 import {
   paymentMethodMap,
   transactionCategoryMap,
-} from "@/app/constants/transactions";
+} from "@/app/_constants/transactions";
 
 export const transactionColumns: ColumnDef<Transaction>[] = [
   {

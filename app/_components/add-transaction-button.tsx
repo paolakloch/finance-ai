@@ -41,8 +41,9 @@ import {
 import {
   paymentMethodOptions,
   transactionTypeOptions,
-} from "../constants/transactions";
+} from "../_constants/transactions";
 import { DatePicker } from "./ui/date-picker";
+import { addTransaction } from "../_actions";
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -79,7 +80,14 @@ const AddTransactionButton = () => {
   });
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+    try {
+      addTransaction({
+        ...data,
+        amount: parseFloat(data.amount.replace(/,/g, "")) || 0,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
